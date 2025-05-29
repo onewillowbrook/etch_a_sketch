@@ -1,6 +1,20 @@
 const container = document.querySelector('.container');
 const buttonSizer = document.querySelector('.sizer');
 const inputSizer = document.querySelector('.inputSizer');
+const container = document.querySelector('.container');
+
+function createGrid(gridSize) {
+    container.innerHTML = '';
+    const boxSize = 960 / gridSize;
+    for (let i = 0; i < gridSize * gridSize; i++) {
+        const box = document.createElement('div');
+        box.classList.add('box');
+        box.style.width = `${boxSize}px`;
+        box.style.height = `${boxSize}px`;
+        box.style.border = '1px solid #ccc';
+        container.appendChild(box);
+    }
+}
 
 
 
@@ -33,6 +47,6 @@ buttonSizer.addEventListener("click", () => {
     if (!isNaN(size) && size > 9 && size < 101) {
         boxSizer(size);
     } else {
-        alert("Please enter a valid size.");
+        alert("Please enter a valid size: 10 <-> 100 are allowed.");
     }
 });
