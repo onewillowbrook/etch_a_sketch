@@ -12,20 +12,16 @@
     width: 200px;
 }
 
-.sizer {
+.sizer,
+.eraseAll,
+.eraseButton,
+.marker {
     background-color: lightblue;
     width: 100px;
     height: 50px;
     border-radius: 15px;
     
     
-}
-
-.eraser {
-    background-color: lightblue;
-    width: 100px;
-    height: 50px;
-    border-radius: 15px;
 }
 
 .container {
