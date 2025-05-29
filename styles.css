@@ -21,6 +21,13 @@
     
 }
 
+.eraser {
+    background-color: lightblue;
+    width: 100px;
+    height: 50px;
+    border-radius: 15px;
+}
+
 .container {
     background-color: lightblue;
     display: flex;

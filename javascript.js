@@ -1,6 +1,11 @@
 const container = document.querySelector('.container');
 const buttonSizer = document.querySelector('.sizer');
 const inputSizer = document.querySelector('.inputSizer');
+const eraseButton = document.querySelector('.eraser');
+
+let isDrawing = false;
+document.body.addEventListener('mousedown', () => isDrawing = true);
+document.body.addEventListener('mouseup', () => isDrawing = false);
 
 function createGrid(gridSize) {
     container.innerHTML = '';
@@ -14,12 +19,19 @@ function createGrid(gridSize) {
         
         // box.textContent = `Box ${i + 1}`;
         box.addEventListener('mouseenter', () => {
-            box.style.backgroundColor = 'dodgerblue';
+            if (isDrawing) {
+                box.style.backgroundColor = 'black';
+            }
+            
         });
+
+        box.addEventListener('mousedown', () => {
+            box.style.backgroundColor = 'black';
+        })
         
-        box.addEventListener('mouseleave', () => {
-            box.style.backgroundColor = '';
-        });
+        // box.addEventListener('mouseleave', () => {
+        //     box.style.backgroundColor = '';
+        // });
     
         container.appendChild(box);
         }
@@ -27,7 +39,7 @@ function createGrid(gridSize) {
 
 
 
-createGrid(16);
+createGrid(10);
 
 buttonSizer.addEventListener("click", () => {
     const size = parseInt(inputSizer.value);
@@ -37,3 +49,9 @@ buttonSizer.addEventListener("click", () => {
         alert("Please enter a valid size: 10 <-> 100 are allowed.");
     }
 });
+
+eraseButton.addEventListener('click', () => {
+    document.querySelectorAll('.box').forEach(box => {
+        box.style.backgroundColor = '';
+    })
+})
