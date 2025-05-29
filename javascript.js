@@ -19,3 +19,9 @@ for (let i = 0; i < 16; i++) {
     });
 }
 
+function boxSizer(size) {
+    document.querySelectorAll('.box').forEach(box => {
+        box.style.width = `${size}px`;
+        box.style.height = `${size}px`;
+    })
+};

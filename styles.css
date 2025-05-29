@@ -1,3 +1,21 @@
+.header {
+    display: flex;
+    flex: 1 1 0;
+    background-color: black;
+    justify-content: center;
+    align-items: center;
+    width: 960px;
+}
+
+.sizer {
+    background-color: lightblue;
+    width: 100px;
+    height: 50px;
+    border-radius: 15px;
+    
+    
+}
+
 .container {
     background-color: lightblue;
     display: flex;
