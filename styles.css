@@ -8,6 +8,10 @@
     width: 960px;
 }
 
+.inputSizer {
+    width: 200px;
+}
+
 .sizer {
     background-color: lightblue;
     width: 100px;
