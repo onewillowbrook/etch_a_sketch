@@ -4,18 +4,23 @@ const inputSizer = document.querySelector('.inputSizer');
 const eraseAllButton = document.querySelector('.eraseAll');
 const colorPicker = document.querySelector('#colorPicker');
 const marker = document.querySelector('.marker');
-const eraser = document.querySelector('.eraserButton')
+const eraser = document.querySelector('.eraseButton')
 
 
 let isDrawing = false;
 let markerSelector = true;
+marker.classList.add('active');
 
 function markerFunction() {
-    markerSelector = true
+    markerSelector = true;
+    marker.classList.add('active');
+    eraser.classList.remove('active');
 }
 
 function eraserFunction() {
-    markerSelector = false
+    markerSelector = false;
+    eraser.classList.add('active');
+    marker.classList.remove('active');
 }
 
 document.body.addEventListener('mousedown', () => isDrawing = true);
@@ -35,14 +40,18 @@ function createGrid(gridSize) {
         box.addEventListener('mouseenter', () => {
             if (isDrawing && markerSelector === true) {
                 box.style.backgroundColor = colorPicker.value;
-            } if (isDrawing && markerSelector === false) {
+            } if (isDrawing === true && markerSelector === false) {
                 box.style.backgroundColor = 'lightblue';
             }
             
         });
 
         box.addEventListener('mousedown', () => {
-            box.style.backgroundColor = colorPicker.value;
+            if (markerSelector === true) {
+                box.style.backgroundColor = colorPicker.value;
+            } else {
+                box.style.backgroundColor = 'lightblue';
+            }
         })
         
         // box.addEventListener('mouseleave', () => {
@@ -72,5 +81,5 @@ eraseAllButton.addEventListener('click', () => {
     })
 })
 
-eraser.addEventListener('click', markerFunction);
-marker.addEventListener('click', eraserFunction);
+eraser.addEventListener('click', eraserFunction);
+marker.addEventListener('click', markerFunction);
