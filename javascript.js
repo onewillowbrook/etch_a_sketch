@@ -1,4 +1,6 @@
 const container = document.querySelector('.container');
+const buttonSizer = document.querySelector('.sizer');
+const inputSizer = document.querySelector('.inputSizer');
 
 
 
@@ -25,3 +27,12 @@ function boxSizer(size) {
         box.style.height = `${size}px`;
     })
 };
+
+buttonSizer.addEventListener("click", () => {
+    const size = parseInt(inputSizer.value);
+    if (!isNaN(size) && size > 9 && size < 101) {
+        boxSizer(size);
+    } else {
+        alert("Please enter a valid size.");
+    }
+});
